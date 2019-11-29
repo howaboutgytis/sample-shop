@@ -1,7 +1,9 @@
 buildscript {
     ext {
         springBootVersion = "2.2.1.RELEASE"
+        springRestDocsVersion = "2.0.4.RELEASE"
         junitVersion = "5.5.2"
+        snippetsDir = file('build/generated-snippets')
     }
     repositories {
         mavenCentral()
@@ -9,6 +11,10 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
+}
+
+plugins {
+    id "org.asciidoctor.convert" version "1.5.9.2"
 }
 
 apply plugin: 'java'
@@ -19,6 +25,11 @@ apply plugin: 'io.spring.dependency-management'
 bootJar {
     archiveFileName = "sample-shop"
     archiveVersion.set("0.0.1")
+
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
 }
 
 repositories {
@@ -30,6 +41,12 @@ targetCompatibility = 11
 
 test {
     useJUnitPlatform()
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
 }
 
 dependencies {
@@ -42,4 +59,7 @@ dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-params:${junitVersion}")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     testCompile("org.springframework.boot:spring-boot-starter-test") // TODO: remove Junit4
+
+    asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${springRestDocsVersion}"
+    testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:${springRestDocsVersion}"
 }

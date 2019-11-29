@@ -16,6 +16,14 @@ public class Product extends IdentityInfo {
     @Column(name = "currency_code")
     private String currencyCode;
 
+    public Product() { }
+
+    public Product(String name, BigDecimal price, String currencyCode) {
+        this.name = name;
+        this.price = price;
+        this.currencyCode = currencyCode;
+    }
+
     public String getName() {
         return name;
     }

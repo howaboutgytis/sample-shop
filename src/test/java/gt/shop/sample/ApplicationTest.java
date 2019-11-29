@@ -9,6 +9,6 @@ class ApplicationTest {
 
     @Test
     @DisplayName("Should start with no errors")
-    void startsSuccessfully() throws Exception { }
+    void startsSuccessfully() { }
 
 }

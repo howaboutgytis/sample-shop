@@ -1,0 +1,70 @@
+= Sample API Documentation
+:toc: left
+:sectnums:
+
+== Introduction
+This is an simple Spring REST Docs + Asciidoctor documentation.
+
+
+== Products API
+
+=== Get all products
+No request body required.
+
+==== Sample Request
+include::{snippets}/products-get-all/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/products-get-all/response-body.adoc[]
+
+=== Get product by id
+
+include::{snippets}/products-get-by-id/path-parameters.adoc[]
+
+==== Sample Request
+include::{snippets}/products-get-by-id/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/products-get-by-id/response-body.adoc[]
+
+=== Create new product
+
+==== Sample Request
+include::{snippets}/products-post/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/products-post/response-body.adoc[]
+
+=== Update a product
+
+==== Sample Request
+include::{snippets}/products-put/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/products-put/response-body.adoc[]
+
+
+== Orders API
+
+=== Get orders between time intervals
+No request body required.
+
+include::{snippets}/orders-get/request-parameters.adoc[]
+
+==== Sample Request
+include::{snippets}/orders-get/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/orders-get/response-body.adoc[]
+
+=== Create a new order
+Products are mapped in pairs by id and quantity:
+
+* left value is id of a product
+* right value is quantity of that product
+
+==== Sample request
+include::{snippets}/orders-post/http-request.adoc[]
+
+==== Sample Response
+include::{snippets}/orders-post/response-body.adoc[]

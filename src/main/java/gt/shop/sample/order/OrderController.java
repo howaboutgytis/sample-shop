@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.List;
 
 @RestController
-public class OrderController {
+class OrderController {
 
     private ProductRepository productRepository;
     private OrderService orderService;
@@ -29,10 +29,10 @@ public class OrderController {
 
     @PostMapping("/orders")
     public Order placeNewOrder(@RequestBody OrderRequest orderRequest) {
-        Order result = new Order("buyer@aaaa.bbb");
+        Order result = null;
 
         if (!orderRequest.getOrder().isEmpty()) {
-            Order order = new Order();
+            Order order = new Order(orderRequest.getBuyersEmail());
             orderRequest.getOrder().forEach((productId, quantity) -> productRepository.findById(productId)
                     .ifPresent(product -> order.getOrderedProducts()
                             .add(new OrderedProduct(product.getPrice(), product, quantity))));

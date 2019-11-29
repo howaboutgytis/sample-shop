@@ -30,6 +30,11 @@ class Order extends IdentityInfo {
     @Email
     private String buyerEmail;
 
+    /**
+     * Total sum of whole order. Product prices are saved with the order and calculations are made with those prices,
+     * not the current prices of the products.
+     * @return total sum of order
+     */
     @Transient
     public BigDecimal getTotalPrice() {
         BigDecimal result = BigDecimal.ZERO;

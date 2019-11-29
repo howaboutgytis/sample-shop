@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.time.Instant;
 import java.util.Objects;
 
+/**
+ * General identity information for all objects that are persistable to database.
+ */
 @Entity
 @Table(name = "identity_info")
 @Inheritance(

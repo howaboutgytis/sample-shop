@@ -8,7 +8,18 @@ import java.util.Map;
  */
 public class OrderRequest {
 
+    private String buyersEmail;
+
     private Map<Integer, Integer> order = new HashMap<>();
+
+    public String getBuyersEmail() {
+        return buyersEmail;
+    }
+
+    public OrderRequest setBuyersEmail(String buyersEmail) {
+        this.buyersEmail = buyersEmail;
+        return this;
+    }
 
     public Map<Integer, Integer> getOrder() {
         return order;

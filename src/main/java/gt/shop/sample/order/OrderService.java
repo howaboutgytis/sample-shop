@@ -8,8 +8,11 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
 
+/**
+ * Service for orders business logic.
+ */
 @Service
-public class OrderService {
+class OrderService {
 
     private OrderRepository orderRepository;
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class ProductController {
+class ProductController {
 
     private ProductRepository productRepository;
 
@@ -18,6 +18,12 @@ public class ProductController {
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @GetMapping("/products/{id}")
+    public Product getProduct(@PathVariable Integer id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Product with id [" + id +"] not found"));
     }
 
     @PostMapping("/products")
