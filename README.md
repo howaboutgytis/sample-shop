@@ -1,5 +1,5 @@
 ### Starting up the app
-Use <code>/gradlew bootRun</code> from the **sample-shop** directory. Gradle installation is not needed.
+Use <code>./gradlew bootRun</code> from the **sample-shop** directory. Gradle installation is not needed.
 
 After the app starts, it is reachable on <code>localhost:8080</code>
 
@@ -10,6 +10,9 @@ A sample script(<code>src/main/resources/data.sql</code>) is used to populate th
 
 The database is persisted, but if a fresh clean one is required it can be achieved by changing <code>src/main/resources/application.properties</code> and setting
 <code>spring.jpa.hibernate.ddl-auto</code> property to <code>create</code> (default is <code>update</code>)
+
+A simple database interface can be reached on <code>localhost:8080/h2-console</code>
+JDBC URL should be: <code>jdbc:h2:file:database/shop-rest-database</code>
 
 ### Documentation
 Documentation is made with Spring Rest Docs and Asciidoctor.
