@@ -25,16 +25,4 @@ Application, more specifically - database driver, creates a **.h2.server.propert
 save configurations. This file can be safely deleted.
 
 ### Authentication
-There is no authentication, but if I would make one it would be API key based one.
-* A user needs to register and only then gets an API key (a generated string)
-* Every API request should be made with that string
-
-This would add few degrees of security:
-* Unregistered users can't make requests, preventing from overflowing server with requests from anyone.
-* If something bad happens, the API key can be traced down to the user that uses it.
-* It is possible to place API usage limits on the user - either allowing only certain HTTP methods or limiting number of calls
-
-P.S. I am strongly in favor of OAuth, but didn't explore nor had any experience with it, so I skipped that option.
-
-### How can the service be made redundant?
-I would consider open sourcing the service, making it a package/library you could use in your projects, without needing to create yet another ecommerce system.
+There is no authentication
